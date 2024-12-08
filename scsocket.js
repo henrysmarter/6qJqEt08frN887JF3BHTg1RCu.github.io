@@ -130,7 +130,7 @@ function onClientMessage(e) {
     }
 };
 function onClientClose() {
-    customAlert("Client WebSocket closed, reconnecting in 3 seconds...", 3);
+    customAlert("SkapClient Crashed", 3);
     for (let name in SkapClientPlayers) delete SkapClientPlayers[name];
     // setTimeout(clientWS.init.bind(clientWS), 3000);
 };
