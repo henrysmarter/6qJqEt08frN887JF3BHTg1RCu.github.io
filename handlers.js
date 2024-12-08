@@ -384,39 +384,36 @@ document.addEventListener("keydown", e => {
                 freeCam = true;
             }
             break;
-        case othercontrols[0]:
-            camScale /= 1.5;
-            customAlert(`Camera Scale: ${camScale}`);
-            break;
-        case othercontrols[1]:
-            camScale *= 1.5;
-            customAlert(`Camera Scale: ${camScale}`);
-            break;
-        case localStorage.getItem("powerkeybind0"):
-            let powerpreset0 = localStorage.getItem("powerpreset0").split(",");
-            changePower(0, powerpreset0[0]);
-            changePower(1, powerpreset0[1]);
-            break;
-        case localStorage.getItem("powerkeybind1"):
-            let powerpreset1 = localStorage.getItem("powerpreset1").split(",");
-            changePower(0, powerpreset1[0]);
-            changePower(1, powerpreset1[1]);
-            break;
-        case localStorage.getItem("powerkeybind2"):
-            let powerpreset2 = localStorage.getItem("powerpreset2").split(",");
-            changePower(0, powerpreset2[0]);
-            changePower(1, powerpreset2[1]);
-            break;
-        case localStorage.getItem("powerkeybind3"):
-            let powerpreset3 = localStorage.getItem("powerpreset3").split(",");
-            changePower(0, powerpreset3[0]);
-            changePower(1, powerpreset3[1]);
-            break;
-        case localStorage.getItem("powerkeybind4"):
-            let powerpreset4 = localStorage.getItem("powerpreset4").split(",");
-            changePower(0, powerpreset4[0]);
-            changePower(1, powerpreset4[1]);
-            break;
+            case localStorage.getItem("powerkeybind0"):
+                let powerpreset0 = localStorage.getItem("powerpreset0").split(",");
+                changePower(0, powerpreset0[0]);
+                changePower(1, powerpreset0[1]);
+                customAlert("Power preset 0 activated");
+                break;
+            case localStorage.getItem("powerkeybind1"):
+                let powerpreset1 = localStorage.getItem("powerpreset1").split(",");
+                changePower(0, powerpreset1[0]);
+                changePower(1, powerpreset1[1]);
+                customAlert("Power preset 1 activated");
+                break;
+            case localStorage.getItem("powerkeybind2"):
+                let powerpreset2 = localStorage.getItem("powerpreset2").split(",");
+                changePower(0, powerpreset2[0]);
+                changePower(1, powerpreset2[1]);
+                customAlert("Power preset 2 activated");
+                break;
+            case localStorage.getItem("powerkeybind3"):
+                let powerpreset3 = localStorage.getItem("powerpreset3").split(",");
+                changePower(0, powerpreset3[0]);
+                changePower(1, powerpreset3[1]);
+                customAlert("Power preset 3 activated");
+                break;
+            case localStorage.getItem("powerkeybind4"):
+                let powerpreset4 = localStorage.getItem("powerpreset4").split(",");
+                changePower(0, powerpreset4[0]);
+                changePower(1, powerpreset4[1]);
+                customAlert("Power preset 4 activated");
+                break;            
         case "enter":
         case "/":
             chatInput.focus();
