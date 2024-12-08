@@ -1,24 +1,25 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
     <head>
         <title>BHC Pro-Client</title>
         <meta name="google-site-verification" content="ZgF0wAatFlWYmWIIzk7rdx-3hhlo9XSvz1z6G_AQpT8" />
         <link rel="stylesheet" href="style.css" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Russo One" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tahoma" />
-        <link rel="icon" href="https://cdn.discordapp.com/attachments/1308839499899342978/1312618065145364613/Bananas.svg-removebg-preview.png?ex=674d2655&is=674bd4d5&hm=353dc720563cd2075117589876f50a2dd883a00dd1ea2ea5627e6a0f9dda8b6a&" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+        <link rel="icon" href="https://www.svgrepo.com/show/426032/commet.svg" />
         <meta charset="utf8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="A Client for skap.io. Higher fps, HTML chat and more!">
         <!-- Discord Embed -->
-        <meta content="SkapNightly" property="og:title">
+        <meta content="BHC Pro-Client" property="og:title">
         <meta content="a SkapClient fork" property="og:description">
         <meta content="https://www.youtube.com/watch?v=dQw4w9WgXcQ" property="og:url">
         <meta content="https://nky5223.github.io/SkapClient/skap.ico" property="og:image">
         <meta content="#2080FF" name="theme-color">
     </head>
     <body>
-        <h2 id="connecting">Connecting...</h2>
+        <h1 id="connecting">Connecting...</h1>
 
         <div id="gamesDiv" class="hidden">
             <button id="backtoLogin">Back</button>
@@ -26,35 +27,13 @@
                 <h2>Game list</h2>
                 <button id="refresh">Refresh</button>
                 <button id="createGameMenuBtn">Create game</button>
+                <!-- Display the player count here -->
+                <p id="playerCount">Players online: Loading...</p>
             </div><br>
             <div id="games"></div>
         </div>
 
-    <script>
-        // The actual key "kaboomsigma"
-        const correctKey = "kaboomsigma";
-
-        // Function to check key input
-        function checkKey() {
-            const keyInput = document.getElementById('key').value;
-
-            if (keyInput === correctKey) {
-                // Hide the key input page and show the game content
-                document.getElementById('keyInputPage').classList.add('hidden');
-                document.getElementById('gamesDiv').classList.remove('hidden');
-            } else {
-                alert('Incorrect key. Try again.');
-            }
-        }
-
-        // Optional: Logic for the "Back" button to return to the key input page
-        document.getElementById('backtoLogin').onclick = function() {
-            document.getElementById('gamesDiv').classList.add('hidden');
-            document.getElementById('keyInputPage').classList.remove('hidden');
-        };
-    </script>
-
-        <!--this really needs to be organized, but this is the only way for a one pager without weird use of iframes (given this html/css/js only thing)-->
+        <!-- Settings div with leaderboard toggle switch -->
         <div id="settingsDiv" class="hidden">
             <h1>Settings</h1>
             <hr>
@@ -73,25 +52,20 @@
             <br><br>
             <label for="overlay">Overlay:</label><input type="checkbox" id="overlaybtn">
             <br><br>
-            <!-- Added Less Lag Mode Checkbox -->
-            <label for="lagMode">Less lag mode (Turn off trail)</label><input type="checkbox" id="lagModeCheckbox">
+            <label for="leaderboardSwitch" style="display: inline-flex; align-items: center; position: relative;">
+                <!-- Visible checkbox, but placed behind the label text -->
+                <span style="position: relative; z-index: 1;">Show Leaderboard</span>
+                <!-- Visible text -->
+                <input type="checkbox" id="leaderboardSwitch" style="margin-right: 5px;" />
+            </label>              
+            <br><br>                         
+            <!-- Less lag mode checkbox -->
+            <label for="lagMode" style="display: inline-flex; align-items: center;">
+                Less lag mode (Turn off trail)
+                <input type="checkbox" id="lagModeCheckbox" style="margin-left: 5px;" />
+            </label>
             <br><br>
-            <nj>Zenox-hack</nj>></nj>
-	    <br><br>
-	    <label for="crash">instacrash™️- Delete </label>
-	    <br><br>
-	    <label for="plrinterp">Room lock - End </label>
-            <br><br>
-	    <label for="plrinterp">Rainbow Respawn - Home <label>
-	    <br><br>
-<label for="plrinterp">Account duper - Not added <label for="plrinterp">
-<br><br>
-<label for="plrinterp">funny outline - Insert <label for="plrinterp">
-    <br><br>
-    <label for="plrinterp">Get password - F2 <label for="plrinterp"></label>
-<br><br>
-<br><br>
-            <hr><br>
+            <hr>            
             <h3>Control Options</h3>
             <br>
             Up: <input type="text" class="control" /><br>
@@ -140,6 +114,54 @@
             <input type="text" placeholder="Unban Key" id="unbanInput" /> <button id="unbanBtn">Unban Me!</button>
             <br><br><br><br>
         </div>
+      
+
+        <script>
+            // JavaScript code for disabling/enabling leaderboard visibility
+            document.addEventListener("DOMContentLoaded", () => {
+                const leaderboardSwitch = document.getElementById("leaderboardSwitch"); // Checkbox to toggle leaderboard visibility
+                const leaderboards = document.getElementById("leaderboards"); // The leaderboard div
+        
+                // Ensure leaderboards exists
+                if (!leaderboards) {
+                    console.error("Leaderboard element not found.");
+                    return;
+                }
+        
+                // Set initial state based on the checkbox state
+                if (leaderboardSwitch.checked) {
+                    enable(leaderboards);  // Enable leaderboard if the switch is checked
+                } else {
+                    disable(leaderboards);  // Disable leaderboard if the switch is unchecked
+                }
+        
+                // Add event listener to toggle leaderboard visibility when the switch is changed
+                leaderboardSwitch.addEventListener("change", () => {
+                    if (leaderboardSwitch.checked) {
+                        enable(leaderboards);  // Enable leaderboard if the switch is checked
+                    } else {
+                        disable(leaderboards);  // Disable leaderboard if the switch is unchecked
+                    }
+                });
+            });
+        
+            // Helper function to disable leaderboard
+            function disable(element) {
+                element.style.opacity = "0.0"; // Make it translucent
+                element.style.pointerEvents = "none"; // Disable interactions
+            }
+        
+            // Helper function to enable leaderboard
+            function enable(element) {
+                element.style.opacity = "1"; // Make it fully visible
+                element.style.pointerEvents = "auto"; // Enable interactions
+            }
+        </script>
+        
+        
+
+    </body>
+
 
         <div id="gameDiv" class="hidden">
             <div id="UI">
@@ -154,10 +176,10 @@
                     <input id="chatInput" placeholder="Chat here.">
                 </div>
 
-                <div id="pos" class="hidden">
-                    <p>pos: <span id="posX"></span>, <span id="posY"></span></p>
-                    <p>vel: <span id="velX"></span>, <span id="velY"></span> (<span id="vel"></span>)</p>
-                    <p>aim: <span id="aimX"></span>, <span id="aimY"></span></p>
+                <div id="pos" class="hidden noselect">
+                    <p> <span id="posX"></span>, <span id="posY"></span></p>
+                    <p> <span id="velX"></span>, <span id="velY"></span> (<span id="vel"></span>)</p>
+                    <p> <span id="aimX"></span>, <span id="aimY"></span></p>
                 </div>
 
                 <div id="rate" class="hidden noselect">
@@ -172,9 +194,9 @@
                 </div>
 
                 <h3 id="deathText" class="hidden noselect">
-                    Your a fucking faggot and suck ass.
+                    your trash lil bro reset.
                 </h3>
-                <h3 id="freezeText" class="hidden noselect">Is faggot cold???</h3>
+                <h3 id="freezeText" class="hidden noselect">Is a beta cold???</h3>
 
                 <div id="overlay" class="hidden noselect">
                     <div id="overlaySprint">Sprint</div>
@@ -186,7 +208,6 @@
                     <div class="overlaykeys" id="overlayRight">Right</div>
                     <div class="overlaypowers" id="overlayPower0">Power 1</div>
                     <div class="overlaypowers" id="overlayPower1">Power 2</div>
-                    <div class="overlaycombo" id="overlayCombo">Combo</div>
                 </div>
 
                 <!-- power rewards -->
@@ -353,7 +374,7 @@
                 </div>
                 <div class="reward hidden" id="sakura">
                     <h3>Sakura</h3>
-                    <img src="https://skap.io/textures/hats/sakura.png" alt="sakura" width="300" height="300" />
+                    <img src="https://skap.io/textures/hats/sakura.png" alt="sakura" width="100" height="100" />
                     <p>You have retrieved these rewards from the depths of Exodus. Enjoy the Hat Trio, Enjoy the Div Spam</p>
                     <button class="exitreward exithatreward">&times;</button>
                 </div>
@@ -453,8 +474,8 @@
             <canvas id="render">CANVAS_NOT_SUPPORTED</canvas>
         </div>
         <div id="loginDiv" class="hidden">
-            <h2 id="logo" class="noselect" style="color: rgb(125, 74, 190); margin: 0px;">BHC Pro-Client</h1>
-            <h4 id="desc" class="noselect" style="color: rgb(100, 100, 100); margin: 10px; margin-bottom: 16px; font-weight: 600;">a <a href="https://skap.io">skapclient</a> fork meant for only henry, cameron, benjamin jones.</h2>
+            <h2 id="logo" class="noselect" style="color: #9000ff; margin: 0px;">BHC Pro-Client</h1>
+            <h4 id="desc" class="noselect" style="color: #d000ff; margin: 10px; margin-bottom: 16px; font-weight: 450;">a <a href="https://skap.io">skapclient</a> fork meant for only henry, cameron, benjamin jones.</h2>
             <div id="loginData">
                 <form id="loginForm" action="javascript:void(0)" method="post">
                     <input id="username" class="login-input" value="" placeholder="Username" autocomplete="username"><br>
@@ -467,10 +488,11 @@
             </div>
             <div id="changingRoom" class="hidden">
                 <button id="backToLogout">Back</button>
-                <label for="playerColor">Color: </label>
+                <label for="playerColor"><h2>Color:</h2></label>
                 <input type="color" id="playerColor" />
-                <p>Hats:</p>
-                <div id="hats"></div>
+                <p><h3>Hats:</h3></p>
+                <h6><div id="hats"></div> </h6>
+                
             </div>
             <br>
             <div id="logoutDiv" class="hidden">
