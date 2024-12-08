@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BHC Pro-Client - Key Page</title>
+    <meta name="google-site-verification" content="ZgF0wAatFlWYmWIIzk7rdx-3hhlo9XSvz1z6G_AQpT8" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Russo One" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tahoma" />
+    <link rel="icon" href="nightly.svg" />
+    <meta charset="utf8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Client for skap.io. Higher fps, HTML chat and more!">
+    <style>
+        body {
+            background-image: url('https://skap.nightly.pw/Textures/purple-squares.png');
+            background-size: cover; /* Ensure the background image covers the entire screen */
+            background-position: center center; /* Center the image */
+            color: white; /* White text color */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .key-input {
+            padding: 20px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+            border-radius: 8px;
+        }
+        .key-input input {
+            padding: 10px;
+            font-size: 16px;
+            background: black; /* Set the background to black */
+            border: 1px solid white;
+            color: white; /* White text color */
+            caret-color: white; /* Make the cursor visible */
+            width: 200px;
+            text-align: center;
+        }
+        .key-input button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Special Key Input Section -->
+    <div class="key-input">
+        <label for="key">Enter Special Key:</label>
+        <input type="password" id="key" placeholder="Special Key" />
+        <button onclick="checkKey()">Submit</button>
+    </div>
+
+    <script>
+        // The actual key "kaboomsigma"
+        const correctKey = "kaboomsigma";
+
+        // Function to check key input
+        function checkKey() {
+            const keyInput = document.getElementById('key').value;
+
+            if (keyInput === correctKey) {
+                // Redirect to index.html after successful key input
+                window.location.href = "index.html"; // Redirect to index.html
+            } else {
+                alert('Incorrect key. Try again.');
+            }
+        }
+    </script>
+</body>
+</html>
