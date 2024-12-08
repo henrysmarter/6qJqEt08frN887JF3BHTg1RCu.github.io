@@ -120,7 +120,7 @@ webbysocket.addEventListener("open", () => {
                         message({
                             s: "[CLIENT]",
                             r: 0,
-                            m: `You can't block yourself :/`
+                            m: `fucking dumbass why the fuck would your stupid ass try to block yourself kill yourself`
                         }, true);
                     } else if (devs.includes(p)) {
                         message({
@@ -166,36 +166,12 @@ webbysocket.addEventListener("open", () => {
                         r: 0,
                         m: blocked.length ? "Blocked users: " + blocked.join(", ") : "No blocked users"
                     }, true);
-                } else if (msg.startsWith("/help")) {
+                } else if (msg.startsWith("/credits")) {
                     message({
                         s: "[CLIENT]",
                         r: 0,
                         m: `
-Commands:<br>
-Without perms:<ul>
-<li>/list - Tells you who has perms</li>
-<li>/respawn - Respawns you to Home</li>
-<li>/banned - Check bans</li>
-<li>/help - [CLIENT] Displays this message</li>
-<li>/block &lt;username&gt; - [CLIENT] Blocks a user</li>
-<li>/unblock &lt;username&gt; - [CLIENT] Unblocks a user</li>
-<li>/shrug &lt;message&gt; - [CLIENT] Appends ¯\\_(ツ)_/¯ to the end of the message.</li>
-<li>/tableflip &lt;message&gt; - [CLIENT] Appends (╯°□°）╯︵ ┻━┻ to the end of the message.</li>
-<li>/unflip &lt;message&gt; - [CLIENT] Appends ┬─┬ ノ( ゜-゜ノ) to the end of the message.</li>
-<li>/msg &lt;message&gt; - [CLIENT] Sends a private message to all client users.</li>
-</ul>
-With perms:<ul>
-<li>/res - Rescues yourself</li>
-<li>/god - Turns on godmode</li>
-<li>/tp &lt;areaname&gt; - Teleports to an area</li>
-<li>/kick &lt;username&gt; - Kicks someone</li>
-<li>/ban &lt;username&gt; - Bring the BANHAMMER down on someone</li>
-<li>/unban &lt;username&gt; - Remove the ban from someone</li>
-</ul>
-Owner:<ul>
-<li>/add &lt;username&gt; - Gives someone perms</li>
-<li>/remove &lt;username&gt; - Removes ones' perms</li>
-</ul>
+hen and cameron main creators ben is beta
                         `
                     }, true);
                     chat.scrollTop = chat.scrollHeight;
