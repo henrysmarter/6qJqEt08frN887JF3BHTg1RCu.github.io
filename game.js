@@ -88,6 +88,8 @@ document.addEventListener("keydown", function (event) {
     }
 });
 
+
+
 var keysDown = new Set();
 document.addEventListener("keydown", e => {
     if (e.repeat) return;
@@ -761,19 +763,34 @@ webbysocket.addEventListener("close", () => {
     canSend = false;
     //hide(gameDiv);
     //document.title = "Disconnected";
-    //customAlert("The WebSocket closed for unknown reasons.<br>Please reload the client. If that doesn't work, try again later.<br>Skap may have been taken down for maintenance", Infinity);
+    //customAlert("SkapClient Crashed", infinity);
 });
+
 document.addEventListener("keydown", e => {
     if (!e.repeat && e.key?.toLowerCase() === "p") {
+        // Toggle Chat and Player List together
+        const playerList = document.getElementById("playerList"); // Get the playerList element
+        const chat = document.getElementById("chat"); // Ensure chat element is defined
+
         if (showChat) {
             showChat = false;
-            customAlert("Chat in bubble mode");
+            showPlayerList = false;
+            customAlert("Chat in bubble mode, Player List hidden");
             hide(chat);
+            hide(playerList);
         } else {
             showChat = true;
-            customAlert("Chat in normal mode");
+            showPlayerList = true;
+            customAlert("Chat in normal mode, Player List shown");
             show(chat);
+            show(playerList);
             chat.lastElementChild.scrollIntoView();
         }
     }
 });
+
+function onClientClose() {
+    customAlert("SkapClient Crashed", 3);
+    for (let name in SkapClientPlayers) delete SkapClientPlayers[name];
+    // setTimeout(clientWS.init.bind(clientWS), 3000);
+};
