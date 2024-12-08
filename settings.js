@@ -29,7 +29,7 @@ for (let i in controls) {
 
     input.addEventListener("input", () => {
         controls[i] = input.value.toLowerCase();
-        localStorage.setItem(["up", "left", "down", "right", "shift", "sprint", "power0", "power1", "combo", "respawn"][i], input.value);
+        localStorage.setItem(["up", "left", "down", "right", "shift", "sprint", "power0", "power1", "respawn"][i], input.value);
     });
 }
 for (let i in othercontrols) {
