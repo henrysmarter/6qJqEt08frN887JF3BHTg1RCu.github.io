@@ -14,8 +14,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "Rubik", Arial, Helvetica, sans-serif;
-    background: url("https://cdn.discordapp.com/attachments/1221918509819232318/1312570207918620753/1338278.png?ex=674cf9c3&is=674ba843&hm=904f56307e2100b6a8efd173c7433acb42650d3493b967d85ede2ae3c6a9054a&") no-repeat center center;
+    font-family: "Parkinsans", Arial, Helvetica, sans-serif;
+    background: url("https://www.johnwyatt.com/wp-content/uploads/2022/08/PU-MOLAD-space-BG-scaled.webp") no-repeat center center;
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.7);
     color: #ffffff;
@@ -28,7 +28,7 @@ body {
     font-weight: 500;
 }
 a {
-    color: rgb(105, 54, 170);
+    color: #9000ff;
 }
 
 body.scroll {
@@ -200,16 +200,24 @@ input[type=color] {
 }
 #hats {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
 }
+
+#hats > div {
+    width: 33.33%; /* Each hat takes up one-third of the width */
+    box-sizing: border-box; /* Ensures padding and borders are included in the width */
+    padding: 10px; /* Optional: space between items */
+    text-align: center; /* Optional: align the text inside the div */
+}
+
 .hat {
     width: 100px;
     margin: 0 20px;
 }
 .hat img{
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     background: #ffffff20;
     border: 5px solid transparent;
     cursor: pointer;
@@ -454,7 +462,7 @@ canvas {
     color: #00ffff;
 }
 .deadPlayerName.freezePlayerName {
-    color: #ff0080;
+    color: #4c003d;
 }
 .skapclientPlayerName::before {
     content: "";
@@ -541,7 +549,7 @@ canvas {
     color: #808080;
 }
 .userMsg {
-    color: #ffffff;
+    color: #ff00ea;
 }
 .SYSMsg {
     background-image: repeating-linear-gradient(45deg, #ff0000, #ffff00, #ff0000);
@@ -592,7 +600,7 @@ canvas {
 .msg2121 {
     color: #00ffff;
 }
-.wolfiemsg {
+.henmsg {
     color: #9c9c9c;
 }
 .shrekmsg {
@@ -1085,4 +1093,7 @@ button:hover {
 
 .lb-maintenence {
     color: rgb(197, 21, 44);
+}
+#hiddenElement {
+    display: none;
 }
