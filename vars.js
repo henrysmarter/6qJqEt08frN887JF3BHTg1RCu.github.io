@@ -337,7 +337,7 @@ const renderSettings = {
             /*NKY: loadImage("skins/NKY.png"),
             NKY5223: loadImage("skins/NKY.png"),*/
             "star.": loadImage("skins/star.png"),
-            haha0201: loadImage("skins/kinda_pro.png"),
+            hen: loadImage("skins/kinda_pro.png"),
             ZeroTix: loadImage("skins/zerotixpro.png"),
             wolfie: loadImage("skins/wolfer.png"),
             wolfer: loadImage("skins/wolfer.png"),
@@ -720,7 +720,6 @@ const overlays = [
     document.getElementById("overlaySprint"),
     document.getElementById("overlayPower0"),
     document.getElementById("overlayPower1"),
-    document.getElementById("overlayCombo"),
     document.getElementById("overlayRespawn")
 ];
 
