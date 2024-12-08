@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="style.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Delius&family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
         <link rel="icon" href="https://www.svgrepo.com/show/426032/commet.svg" />
         <meta charset="utf8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -108,7 +108,7 @@
             <input type="radio" name="emoji" id="emoji1" /><label for="emoji1">:smile: to 😊</label><br>
             <input type="radio" name="emoji" id="emoji2" /><label for="emoji2">:) to 😊</label>
             <br><br>
-            <label for="censor">Heavy Censoring (block f***?)</label><input type="checkbox" id="censor">
+            <label for="censor">Heavy Censoring (block n*****?)</label><input type="checkbox" id="censor">
             <br><br><hr><br>
             <h3>Unban</h3>
             <input type="text" placeholder="Unban Key" id="unbanInput" /> <button id="unbanBtn">Unban Me!</button>
@@ -474,8 +474,8 @@
             <canvas id="render">CANVAS_NOT_SUPPORTED</canvas>
         </div>
         <div id="loginDiv" class="hidden">
-            <h2 id="logo" class="noselect" style="color: #9000ff; margin: 0px;">BHC Pro-Client</h1>
-            <h4 id="desc" class="noselect" style="color: #d000ff; margin: 10px; margin-bottom: 16px; font-weight: 450;">a <a href="https://skap.io">skapclient</a> fork meant for only henry, cameron, benjamin jones.</h2>
+            <h2 id="logo" class="noselect" style="color: rgb(125, 74, 190); margin: 0px;">BHC Pro-Client</h1>
+            <h4 id="desc" class="noselect" style="color: rgb(100, 100, 100); margin: 10px; margin-bottom: 16px; font-weight: 600;">a <a href="https://skap.io">skapclient</a> fork meant for only henry, cameron, benjamin jones.</h2>
             <div id="loginData">
                 <form id="loginForm" action="javascript:void(0)" method="post">
                     <input id="username" class="login-input" value="" placeholder="Username" autocomplete="username"><br>
@@ -488,11 +488,10 @@
             </div>
             <div id="changingRoom" class="hidden">
                 <button id="backToLogout">Back</button>
-                <label for="playerColor"><h2>Color:</h2></label>
+                <label for="playerColor">Color: </label>
                 <input type="color" id="playerColor" />
-                <p><h3>Hats:</h3></p>
-                <h6><div id="hats"></div> </h6>
-                
+                <p>Hats:</p>
+                <div id="hats"></div>
             </div>
             <br>
             <div id="logoutDiv" class="hidden">

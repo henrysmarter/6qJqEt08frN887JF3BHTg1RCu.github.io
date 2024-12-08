@@ -417,7 +417,7 @@ function loadSettings() {
     othercontrols = [
         localStorage.getItem("zoomOut") ?? "u",
         localStorage.getItem("zoomIn") ?? "i",
-        localStorage.getItem("freeCam") ?? "f",
+        localStorage.getItem("freeCam") ?? "",
         localStorage.getItem("freeCamUp") ?? "arrowup",
         localStorage.getItem("freeCamLeft") ?? "arrowleft",
         localStorage.getItem("freeCamDown") ?? "arrowdown",
@@ -720,6 +720,7 @@ const overlays = [
     document.getElementById("overlaySprint"),
     document.getElementById("overlayPower0"),
     document.getElementById("overlayPower1"),
+    document.getElementById("overlayCombo"),
     document.getElementById("overlayRespawn")
 ];
 
