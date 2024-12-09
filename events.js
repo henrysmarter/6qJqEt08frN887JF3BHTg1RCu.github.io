@@ -28,7 +28,6 @@ webbysocket.addEventListener("open", () => {
                     username: username.value,
                     password: SHA256(username.value + password.value)
                 },
-                t: token
             });
         });
     });
@@ -60,7 +59,6 @@ webbysocket.addEventListener("open", () => {
         getToken(token => {
             sendWs({
                 e: "guest",
-                t: token
             });
         });
     });
