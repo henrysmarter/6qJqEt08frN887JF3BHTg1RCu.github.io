@@ -274,7 +274,7 @@ const renderSettings = {
                 offset: [-1.8, -2.0],
                 textOffset: -1.5,
                 size: [3.5, 3.5],
-                texture: loadImage("https://skap.io/textures/hats/horns.png")
+                texture: loadImage("https://bluemoji.io/cdn-proxy/646218c67da47160c64a84d5/671ff00d29c65f1f25fb28c0_95.png")
             },
             devil: {
                 offset: [-1.8, -2.0],
@@ -417,7 +417,7 @@ function loadSettings() {
     othercontrols = [
         localStorage.getItem("zoomOut") ?? "u",
         localStorage.getItem("zoomIn") ?? "i",
-        localStorage.getItem("freeCam") ?? "",
+        localStorage.getItem("freeCam") ?? "f",
         localStorage.getItem("freeCamUp") ?? "arrowup",
         localStorage.getItem("freeCamLeft") ?? "arrowleft",
         localStorage.getItem("freeCamDown") ?? "arrowdown",
@@ -720,7 +720,6 @@ const overlays = [
     document.getElementById("overlaySprint"),
     document.getElementById("overlayPower0"),
     document.getElementById("overlayPower1"),
-    document.getElementById("overlayCombo"),
     document.getElementById("overlayRespawn")
 ];
 
