@@ -1,5 +1,5 @@
 webbysocket.addEventListener("open", () => {
-    customAlert("Connected to skap.io servers.", 5);
+    customAlert("Connected to skap.io servers.", 3);
 
     canSend = true;
     if (!URLParams.has("username")) {
@@ -27,8 +27,8 @@ webbysocket.addEventListener("open", () => {
                 m: {
                     username: username.value,
                     password: SHA256(username.value + password.value)
-                     t: token
                 },
+                t: token
             });
         });
     });
