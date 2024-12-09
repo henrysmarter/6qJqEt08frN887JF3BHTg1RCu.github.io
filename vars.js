@@ -272,13 +272,13 @@ const renderSettings = {
             },
             horns: {
                 offset: [-1.8, -2.0],
-                textOffset: -1.5,
+                textOffset: -2.0,
                 size: [3.5, 3.5],
                 texture: loadImage("https://bluemoji.io/cdn-proxy/646218c67da47160c64a84d5/671ff00d29c65f1f25fb28c0_95.png")
             },
             devil: {
                 offset: [-3.7, -2.0],
-                textOffset: -1.5,
+                textOffset: -2.0,
                 size: [7.4, 3.5],
                 texture: loadImage("https://media.tenor.com/wL_ExYdhxCEAAAAj/chill-guy.gif")
             },
