@@ -199,10 +199,10 @@ const renderSettings = {
                 texture: loadImage("https://skap.io/textures/hats/topHat.png")
             },
             guest: {
-                offset: [0, 0],
-                textOffset: -1.3,
-                size: [0, 0],
-                texture: loadImage("https://skap.io/textures/hats/catEars.png")
+                offset: [-1.8, -2.0],
+                textOffset: -2.0,
+                size: [3.5, 3.5],
+                texture: loadImage("https://bluemoji.io/cdn-proxy/646218c67da47160c64a84d5/66b3e5760608f3f68cb0b04b_93.png")
             },
             santa: {
                 offset: [-1.3, -2.4],
