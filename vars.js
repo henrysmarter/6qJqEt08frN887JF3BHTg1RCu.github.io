@@ -277,10 +277,10 @@ const renderSettings = {
                 texture: loadImage("https://bluemoji.io/cdn-proxy/646218c67da47160c64a84d5/671ff00d29c65f1f25fb28c0_95.png")
             },
             devil: {
-                offset: [-1.8, -2.0],
+                offset: [-3.7, -2.0],
                 textOffset: -1.5,
-                size: [3.5, 3.5],
-                texture: loadImage("https://skap.io/textures/hats/devil.png")
+                size: [7.4, 3.5],
+                texture: loadImage("https://media.tenor.com/wL_ExYdhxCEAAAAj/chill-guy.gif")
             },
             sakura: {
                 offset: [-1.05, -1.4],
@@ -338,7 +338,7 @@ const renderSettings = {
             NKY5223: loadImage("skins/NKY.png"),*/
             "star.": loadImage("skins/star.png"),
             hen: loadImage("skins/kinda_pro.png"),
-            ZeroTix: loadImage("skins/zerotixpro.png"),
+            Camo: loadImage("skins/zerotixpro.png"),
             wolfie: loadImage("skins/wolfer.png"),
             wolfer: loadImage("skins/wolfer.png"),
             wolfy: loadImage("skins/wolfer.png"),
