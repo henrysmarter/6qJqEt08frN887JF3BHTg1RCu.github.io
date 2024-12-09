@@ -31,7 +31,7 @@ if (URLParams.has("username")) {
 history.replaceState(null, "SkapClient", location.protocol + "//" + location.host + location.pathname);
 
 //This is not true. It's barely customizable......................................!!!!!!!!!!
-console.log("%cSkapNightly, the hyper-customizable SkapClient", `color: #ff33cc; font-size: 24px; background-color: rgba(20, 20, 20, 0.6);`);
+console.log("%cBHC-Client, the hyper-customizable SkapClient", `color: #ff33cc; font-size: 24px; background-color: rgba(20, 20, 20, 0.6);`);
 
 /**
  * @type {HTMLCanvasElement}
@@ -66,9 +66,9 @@ const renderSettings = {
     },
     colors: {
         obstacle: null,
-        lava: "#d01000",
+        lava: "#9c0000",
         slime: "#00c000",
-        ice: "#00e0e0",
+        ice: "#86bdff",
         box: "#00000060",
         gravOutline: [
             "#ffff00",
@@ -136,9 +136,9 @@ const renderSettings = {
         jetpack: "#c0c0c020",
 
         FPSStroke: "#4040ff",
-        FPSFill: "#4040ff80",
+        FPSFill: "#4040ff",
         TPSStroke: "#ff4040",
-        TPSFill: "#ff404080"
+        TPSFill: "#ff4040"
     },
     textures: {
         enemies: {
@@ -199,10 +199,10 @@ const renderSettings = {
                 texture: loadImage("https://skap.io/textures/hats/topHat.png")
             },
             guest: {
-                offset: [-1.8, -2.0],
-                textOffset: -2.0,
-                size: [3.5, 3.5],
-                texture: loadImage("https://bluemoji.io/cdn-proxy/646218c67da47160c64a84d5/66b3e5760608f3f68cb0b04b_93.png")
+                offset: [0, 0],
+                textOffset: -1.3,
+                size: [0, 0],
+                texture: loadImage("https://skap.io/textures/hats/catEars.png")
             },
             santa: {
                 offset: [-1.3, -2.4],
@@ -272,15 +272,15 @@ const renderSettings = {
             },
             horns: {
                 offset: [-1.8, -2.0],
-                textOffset: -2.0,
+                textOffset: -1.5,
                 size: [3.5, 3.5],
-                texture: loadImage("https://bluemoji.io/cdn-proxy/646218c67da47160c64a84d5/671ff00d29c65f1f25fb28c0_95.png")
+                texture: loadImage("https://skap.io/textures/hats/horns.png")
             },
             devil: {
-                offset: [-3.7, -2.0],
-                textOffset: -2.0,
-                size: [7.4, 3.5],
-                texture: loadImage("https://media.tenor.com/wL_ExYdhxCEAAAAj/chill-guy.gif")
+                offset: [-1.8, -2.0],
+                textOffset: -1.5,
+                size: [3.5, 3.5],
+                texture: loadImage("https://skap.io/textures/hats/devil.png")
             },
             sakura: {
                 offset: [-1.05, -1.4],
@@ -338,7 +338,7 @@ const renderSettings = {
             NKY5223: loadImage("skins/NKY.png"),*/
             "star.": loadImage("skins/star.png"),
             hen: loadImage("skins/kinda_pro.png"),
-            Camo: loadImage("skins/zerotixpro.png"),
+            ZeroTix: loadImage("skins/zerotixpro.png"),
             wolfie: loadImage("skins/wolfer.png"),
             wolfer: loadImage("skins/wolfer.png"),
             wolfy: loadImage("skins/wolfer.png"),
@@ -417,7 +417,7 @@ function loadSettings() {
     othercontrols = [
         localStorage.getItem("zoomOut") ?? "u",
         localStorage.getItem("zoomIn") ?? "i",
-        localStorage.getItem("freeCam") ?? "f",
+        localStorage.getItem("freeCam") ?? "",
         localStorage.getItem("freeCamUp") ?? "arrowup",
         localStorage.getItem("freeCamLeft") ?? "arrowleft",
         localStorage.getItem("freeCamDown") ?? "arrowdown",
@@ -478,8 +478,8 @@ let chatFocus = false;
 
 let viewWS = false;
 let noUS = false;
-const devs = [/*"NKY", "NKY5223", "NKYv2", "NKYv3", "NKYv4", "3225YKN", */"SkapClientAdmin", "ZeroTix", "ZeroFix", "haha0201", "RayhanADev", "ban"];
-const banned = [];
+const devs = [/*"NKY", "NKY5223", "NKYv2", "NKYv3", "NKYv4", "3225YKN", */"hen", "hen", "hen", "hen", "hen", "hen"];
+const banned = ["Ben1"];
 const profanCheck = atob("c2hpdCBmdWNrIG1pbmdlIGNvY2sgdGl0cyBwZW5pcyBjbGl0IHB1c3N5IG1lYXRjdXJ0YWluIGppenogcHJ1bmUgZG91Y2hlIHdhbmtlciBqZXJr").split(" ");
 const seriousProfanCheck = atob("bmlnZ2VyIG5pZ2dhIGZhZ2dvdCBjdW50IHdob3JlIHJhcGU=").split(" ");
 let showChat = true;
@@ -720,6 +720,7 @@ const overlays = [
     document.getElementById("overlaySprint"),
     document.getElementById("overlayPower0"),
     document.getElementById("overlayPower1"),
+    document.getElementById("overlayCombo"),
     document.getElementById("overlayRespawn")
 ];
 
