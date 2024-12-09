@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="style.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Delius&family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
         <link rel="icon" href="https://www.svgrepo.com/show/426032/commet.svg" />
         <meta charset="utf8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,7 @@
         <meta content="https://www.youtube.com/watch?v=dQw4w9WgXcQ" property="og:url">
         <meta content="https://nky5223.github.io/SkapClient/skap.ico" property="og:image">
         <meta content="#2080FF" name="theme-color">
-         <script src="https://www.google.com/recaptcha/api.js?render=6Ld2wFMaAAAAAIL8fjR5Bwg6kn3fP2t-b9NFoK_R"></script>
+        <script src="https://www.google.com/recaptcha/api.js?render=6Ld2wFMaAAAAAIL8fjR5Bwg6kn3fP2t-b9NFoK_R"></script>
     </head>
     <body>
         <h1 id="connecting">Connecting...</h1>
@@ -28,8 +28,8 @@
                 <h2>Game list</h2>
                 <button id="refresh">Refresh</button>
                 <button id="createGameMenuBtn">Create game</button>
-                <!-- Display disclaimer here -->
-                <p id="playerCount">Disclaimer: We are not responsible for any consequences you may face at school for using or sharing this content. Use responsibly and follow your school's rules.</p>
+                <!-- Display the player count here -->
+                <p id="playerCount">Players online: Loading...</p>
             </div><br>
             <div id="games"></div>
         </div>
@@ -109,7 +109,7 @@
             <input type="radio" name="emoji" id="emoji1" /><label for="emoji1">:smile: to 😊</label><br>
             <input type="radio" name="emoji" id="emoji2" /><label for="emoji2">:) to 😊</label>
             <br><br>
-            <label for="censor">Heavy Censoring (block f***?)</label><input type="checkbox" id="censor">
+            <label for="censor">Heavy Censoring (block n*****?)</label><input type="checkbox" id="censor">
             <br><br><hr><br>
             <h3>Unban</h3>
             <input type="text" placeholder="Unban Key" id="unbanInput" /> <button id="unbanBtn">Unban Me!</button>
@@ -195,7 +195,7 @@
                 </div>
 
                 <h3 id="deathText" class="hidden noselect">
-                    you suck reset.
+                    your trash lil bro reset.
                 </h3>
                 <h3 id="freezeText" class="hidden noselect">Is a beta cold???</h3>
 
@@ -361,16 +361,16 @@
                     <p>Great job practicing the map!</p>
                     <button class="exitreward exithatreward">&times;</button>
                 </div>
-                <div class="reward hidden" id="Slient Sigmas">
-                    <h3>Slient Sigmas</h3>
-                    <img src="https://bluemoji.io/cdn-proxy/646218c67da47160c64a84d5/671ff00d29c65f1f25fb28c0_95.png" alt="horns" width="300" height="300" />
-                    <p>You have retrieved these rewards from the depths of Exodus. Enjoy joining the gooners club</p>
+                <div class="reward hidden" id="horns">
+                    <h3>Horns</h3>
+                    <img src="https://skap.io/textures/hats/horns.png" alt="horns" width="300" height="300" />
+                    <p>You have retrieved these rewards from the depths of Exodus. Enjoy the Hat Trio, Enjoy the Div Spam</p>
                     <button class="exitreward exithatreward">&times;</button>
                 </div>
-                <div class="reward hidden" id="Chill-Guy">
-                    <h3>Im Just A Chill Guy</h3>
-                    <img src="https://media.tenor.com/wL_ExYdhxCEAAAAj/chill-guy.gif" alt="devil" width="300" height="300" />
-                    <p>You have retrieved these rewards from the depths of Exodus. And your a chill guy for that take this as your reward</p>
+                <div class="reward hidden" id="devil">
+                    <h3>Devil</h3>
+                    <img src="https://skap.io/textures/hats/devil.png" alt="devil" width="300" height="300" />
+                    <p>You have retrieved these rewards from the depths of Exodus. Enjoy the Hat Trio, Enjoy the Div Spam</p>
                     <button class="exitreward exithatreward">&times;</button>
                 </div>
                 <div class="reward hidden" id="sakura">
@@ -475,26 +475,24 @@
             <canvas id="render">CANVAS_NOT_SUPPORTED</canvas>
         </div>
         <div id="loginDiv" class="hidden">
-            <h2 id="logo" class="noselect" style="color: #9000ff; margin: 0px;">BHC Pro-Client</h1>
-            <h4 id="desc" class="noselect" style="color: #d000ff; margin: 10px; margin-bottom: 16px; font-weight: 450;">a <a href="https://skap.io">skapclient</a> fork made by camo and hen.
-            </h2>
+            <h2 id="logo" class="noselect" style="color: #fbfbfb; margin: 0px;">BHC Pro-Client</h1>
+            <h4 id="desc" class="noselect" style="color: #5260ba; margin: 10px; margin-bottom: 16px; font-weight: 600;">a <a href="https://skap.io">skapclient</a> fork that is the best for zero delay.</h2>
             <div id="loginData">
                 <form id="loginForm" action="javascript:void(0)" method="post">
                     <input id="username" class="login-input" value="" placeholder="Username" autocomplete="username"><br>
                     <input id="password" type="password" class="login-input" value="" placeholder="Password" autocomplete="current-password">
                 </form>
                 <br><br>
-                <button id="guest">test</button>
+                <button id="guest">Guest</button>
                 <button id="login" form="loginForm">Login</button>
                 <button id="register" form="loginForm">Register</button>
             </div>
             <div id="changingRoom" class="hidden">
                 <button id="backToLogout">Back</button>
-                <label for="playerColor"><h2>Color:</h2></label>
+                <label for="playerColor">Color: </label>
                 <input type="color" id="playerColor" />
-                <p><h3>Hats:</h3></p>
-                <h6><div id="hats"></div> </h6>
-                
+                <p>Hats:</p>
+                <div id="hats"></div>
             </div>
             <br>
             <div id="logoutDiv" class="hidden">
@@ -601,5 +599,6 @@
         <script src="https://www.google.com/recaptcha/api.js?render=6Ld2wFMaAAAAAIL8fjR5Bwg6kn3fP2t-b9NFoK_R"></script>
         <script src="bootstrapper.js"></script>
     </body>
-    
+
+
 </html>
